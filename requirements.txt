@@ -13,3 +13,4 @@ lime
 streamlit
 joblib
 torch
+huggingface_hub

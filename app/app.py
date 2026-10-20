@@ -4,6 +4,7 @@
 import json
 import sys
 from pathlib import Path
+from huggingface_hub import hf_hub_download
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -24,8 +25,8 @@ from transformers import (
 
 ROOT = Path(__file__).resolve().parents[1]
 
-MODEL_DIR = ROOT / "models" / "distilbert_fake_news"
-TFIDF_MODEL_PATH = ROOT / "models" / "tfidf_logistic_regression.joblib"
+HF_REPO_ID = "HeyNerd04/fake-news-headline-classifier-models"
+TFIDF_FILENAME = "tfidf/tfidf_logistic_regression.joblib"
 
 METRICS_PATH = ROOT / "reports" / "final_test_metrics.json"
 
@@ -64,9 +65,9 @@ st.set_page_config(
 
 @st.cache_resource
 def load_transformer_model():
-    """Load and cache the trained DistilBERT model and tokenizer."""
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
-    model = AutoModelForSequenceClassification.from_pretrained(MODEL_DIR)
+    """Load and cache DistilBERT from Hugging Face Hub."""
+    tokenizer = AutoTokenizer.from_pretrained(HF_REPO_ID)
+    model = AutoModelForSequenceClassification.from_pretrained(HF_REPO_ID)
 
     model.to(DEVICE)
     model.eval()
@@ -76,13 +77,13 @@ def load_transformer_model():
 
 @st.cache_resource
 def load_tfidf_model():
-    """Load and cache the TF-IDF + Logistic Regression pipeline."""
-    if not TFIDF_MODEL_PATH.exists():
-        raise FileNotFoundError(
-            f"TF-IDF model not found: {TFIDF_MODEL_PATH}"
-        )
+    """Download and cache the TF-IDF model from Hugging Face Hub."""
+    model_path = hf_hub_download(
+        repo_id=HF_REPO_ID,
+        filename=TFIDF_FILENAME,
+    )
 
-    return load(TFIDF_MODEL_PATH)
+    return load(model_path)
 
 
 @st.cache_resource
@@ -153,13 +154,6 @@ def display_lime_explanation(headline, transformer_label):
         "LIME explains the TF-IDF baseline, not DistilBERT. "
         "Word contributions describe model behavior, not factual truth."
     )
-
-    if not TFIDF_MODEL_PATH.exists():
-        st.info(
-            "The TF-IDF model was not found. "
-            "Train the baseline model before using LIME."
-        )
-        return
 
     try:
         with st.spinner("Generating word-level explanation..."):
@@ -474,13 +468,6 @@ st.info(
     "This is a machine-learning demonstration, not a fact-checking service. "
     "Predictions do not establish whether a claim is true."
 )
-
-if not MODEL_DIR.exists():
-    st.error(
-        "The trained DistilBERT model was not found. "
-        "Run the transformer training script first."
-    )
-    st.stop()
 
 try:
     tokenizer, model = load_transformer_model()
