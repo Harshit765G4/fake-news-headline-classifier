@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+jupyterlab
+ipykernel
+pytest
+transformers
+accelerate
+lime
+streamlit
+joblib

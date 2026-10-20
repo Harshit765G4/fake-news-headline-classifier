@@ -1,0 +1,61 @@
+{
+  "dataset": "Processed fake news headline dataset",
+  "rows": 38725,
+  "columns": [
+    "headline",
+    "label",
+    "label_name",
+    "normalized_headline",
+    "source_file",
+    "word_count",
+    "character_count"
+  ],
+  "class_counts": {
+    "real": 20824,
+    "fake": 17901
+  },
+  "class_proportions_percent": {
+    "real": 53.77,
+    "fake": 46.23
+  },
+  "length_statistics": {
+    "fake": {
+      "word_count": {
+        "mean": 14.324171833975756,
+        "median": 14.0,
+        "min": 1.0,
+        "max": 42.0
+      },
+      "character_count": {
+        "mean": 91.25043293670744,
+        "median": 88.0,
+        "min": 8.0,
+        "max": 286.0
+      }
+    },
+    "real": {
+      "word_count": {
+        "mean": 9.95121014214368,
+        "median": 10.0,
+        "min": 4.0,
+        "max": 20.0
+      },
+      "character_count": {
+        "mean": 64.67196504033807,
+        "median": 64.0,
+        "min": 26.0,
+        "max": 133.0
+      }
+    }
+  },
+  "headline_length_percentiles": {
+    "0.5": 11.0,
+    "0.9": 17.0,
+    "0.95": 19.0,
+    "0.99": 25.0
+  },
+  "figures": {
+    "class_distribution": "reports\\figures\\class_distribution.png",
+    "headline_length": "reports\\figures\\headline_length.png"
+  }
+}

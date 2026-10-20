@@ -1,0 +1,41 @@
+{
+  "random_state": 42,
+  "split_strategy": "stratified random split",
+  "requested_proportions": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "total_rows": 38725,
+  "splits": {
+    "train": {
+      "rows": 27107,
+      "proportion": 0.69999,
+      "class_counts": {
+        "real": 14576,
+        "fake": 12531
+      }
+    },
+    "validation": {
+      "rows": 5809,
+      "proportion": 0.15001,
+      "class_counts": {
+        "real": 3124,
+        "fake": 2685
+      }
+    },
+    "test": {
+      "rows": 5809,
+      "proportion": 0.15001,
+      "class_counts": {
+        "real": 3124,
+        "fake": 2685
+      }
+    }
+  },
+  "cross_split_headline_overlap": {
+    "train_vs_validation": 0,
+    "train_vs_test": 0,
+    "validation_vs_test": 0
+  }
+}

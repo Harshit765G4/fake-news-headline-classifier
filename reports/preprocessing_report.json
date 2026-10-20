@@ -1,0 +1,27 @@
+{
+  "project": "Fake News Headline Binary Classifier",
+  "initial_rows": 44898,
+  "removed_empty_headlines": 0,
+  "conflicting_headline_groups": 0,
+  "rows_in_conflicting_groups": 0,
+  "eligible_rows_before_deduplication": 44898,
+  "unique_headlines_after_deduplication": 38725,
+  "duplicate_rows_removed": 6173,
+  "class_counts": {
+    "1": 20824,
+    "0": 17901
+  },
+  "class_names": {
+    "0": "fake",
+    "1": "real"
+  },
+  "output_file": "C:\\Users\\Hey_Nerd\\Desktop\\fake-news-headline-classifier\\data\\processed\\headlines.csv",
+  "conflict_file": "C:\\Users\\Hey_Nerd\\Desktop\\fake-news-headline-classifier\\reports\\conflicting_headlines.csv",
+  "notes": [
+    "Raw files are not modified.",
+    "Only the headline is used as model input.",
+    "Duplicate grouping uses lowercase and normalized whitespace.",
+    "The first record is retained for each normalized headline.",
+    "Dataset labels do not establish factual truth."
+  ]
+}

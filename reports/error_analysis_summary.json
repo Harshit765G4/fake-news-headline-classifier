@@ -1,0 +1,10 @@
+{
+  "test_rows": 5809,
+  "warning": "Descriptive analysis only. Do not use the final test set for model selection or hyperparameter tuning.",
+  "tfidf_errors": 313,
+  "distilbert_errors": 82,
+  "both_models_correct": 5471,
+  "both_models_wrong": 57,
+  "tfidf_only_wrong": 256,
+  "distilbert_only_wrong": 25
+}

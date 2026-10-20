@@ -1,0 +1,62 @@
+{
+  "dataset": "ISOT Fake and Real News Dataset",
+  "task": "Headline binary classification",
+  "label_mapping": {
+    "fake": 0,
+    "real": 1
+  },
+  "files": {
+    "fake": {
+      "file": "Fake.csv",
+      "assigned_label": "fake",
+      "rows": 23481,
+      "columns": [
+        "title",
+        "text",
+        "subject",
+        "date"
+      ],
+      "missing_values": {
+        "title": 0,
+        "text": 0,
+        "subject": 0,
+        "date": 0
+      },
+      "exact_duplicate_rows": 3,
+      "missing_or_empty_titles": 0,
+      "unique_nonempty_normalized_titles": 17901,
+      "duplicate_normalized_title_rows": 5580
+    },
+    "real": {
+      "file": "True.csv",
+      "assigned_label": "real",
+      "rows": 21417,
+      "columns": [
+        "title",
+        "text",
+        "subject",
+        "date"
+      ],
+      "missing_values": {
+        "title": 0,
+        "text": 0,
+        "subject": 0,
+        "date": 0
+      },
+      "exact_duplicate_rows": 206,
+      "missing_or_empty_titles": 0,
+      "unique_nonempty_normalized_titles": 20824,
+      "duplicate_normalized_title_rows": 593
+    }
+  },
+  "cross_class_overlap": {
+    "unique_normalized_headlines_in_both_classes": 0
+  },
+  "total_rows": 44898,
+  "notes": [
+    "Labels are inherited from the source files.",
+    "Duplicate counts are diagnostic, not deletion instructions.",
+    "Headline overlap across labels requires investigation.",
+    "This audit does not establish factual truth."
+  ]
+}
