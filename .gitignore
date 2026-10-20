@@ -38,3 +38,7 @@ dist/
 build/
 *.egg-info/
 .vscode/
+
+# Local challenge and dataset-review artifacts
+reports/challenge_evaluation.json
+reports/conflicting_headlines.csv
